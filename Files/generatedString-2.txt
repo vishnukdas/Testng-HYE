@@ -1,0 +1,1 @@
+Capabilities {browserName: Edge, browserVersion: latest-1, build: TestNG Frameworknull, console: true, name: testName, network: true, video: true, visual: true}
