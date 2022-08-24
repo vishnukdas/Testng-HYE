@@ -1,0 +1,98 @@
+version: 0.1
+globalTimeout: 100
+testSuiteTimeout: 10
+testSuiteStep: 100
+retryOnFailure: true
+maxRetries: 1
+#runtime:
+#  language: node
+#  version: 14
+#  addons:
+#    - name: "gauge"
+#      version: "1.4.0"
+#    - name: "gradle"
+#      version : "7.0"
+vars:
+  path: src/test/java/testng.xml
+
+jobLabel: ['Stage','Job_label','postOnly']
+runson: linux
+debug: false
+frameworkStatusOn: true
+
+#tunnel: true
+#tunnelOpts:
+#  preOnly: true
+#  tunnelNames: ["prateeks"]
+#  args: ["--mitm","--verbose"]
+#  systemProxy: true
+#  systemProxyBypass: ["hub.lambdatest.com", "hypertestproduction.blob.core.windows.net"]
+autosplit: true
+concurrency: 2
+testDiscovery:
+  type: raw
+  mode: static
+  command: grep 'test name' ${path} | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
+
+testRunnerCommand: mvn test -DselectedTests="$test" -Dmaven.repo.local=./.m2 dependency:resolve #-nsu #`-DproxyHost=%LT_PROXY_HOST%  `-DproxyPort=%LT_PROXY_PORT% `-Dhttp.nonProxyHosts=stage-hub.lambdatest.com
+#testRunnerCommand: mvn clean test -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests="$test"
+
+report: true
+partialReports:
+  location: target/surefire-reports
+  type: html
+pre:
+#  - aws configure set aws_access_key_id %aws_access_key_id%  --profile boomi
+#  - aws configure set region us-east-1 --profile boomi
+#  - aws configure set aws_secret_access_key %aws_secret_access_key% --profile boomi
+#  - aws configure set output json --profile boomi
+#  - netsh winhttp show proxy
+#  - echo %GROUP_NUMBER%
+#  - echo %test_key%
+#  - echo ${test_key}
+ # - mkdir %HOMEPATH%\.aws & echo [boomi-identity] >> %HOMEPATH%\.aws\credentials & echo.aws_access_key_id = %aws_access_key_id% >> %HOMEPATH%\.aws\credentials & echo.aws_secret_access_key = %aws_secret_access_key% >> %HOMEPATH%\.aws\credentials
+ # - cat %HOMEPATH%/.aws/credentials
+ # - echo %Test%
+#  - echo %LT_PROXY_HOST%
+#  - echo %LT_PROXY_PORT%
+#  - node --version
+#  - echo %HYPEREXECUTE_WORKING_DIR%
+#  - curl -v http://api-data-gen.12.app.qa.pfops.com/api-data-gen/datagen/loanapp
+  - ls -la
+  - mvn -Dmaven.repo.local=./.m2 dependency:resolve  #-DproxyHost=%LT_PROXY_HOST%  -DproxyPort=%LT_PROXY_PORT%
+#  - ls -la
+  # - mvn -Dmaven.repo.local=./.m2 dependency:resolve
+post:
+#  - echo %GROUP_NUMBER%
+#  - echo ${LT_PROXY_HOST}
+#  - echo ${LT_PROXY_PORT}
+#  - curl lambdatest.com
+#  - curl ipinfo.io/ip
+#  - echo %Test%
+  #- %HYPEREXECUTE_WORKING_DIR%
+
+##
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+#
+#uploadArtefacts:
+#    - name: Files
+#      path:
+#         - Files\
+#
+#    - name: DOWNLOADS
+#      path:
+#          - src/test/
+
+mergeArtifacts: true
+stripParentDirectory: true
+env:
+  VERSION: 3.141.59
+  aws_access_key_id: ${{ .secrets.aws_access_key_id }}
+  aws_secret_access_key: ${{ .secrets.aws_secret_access_key }}
+
+#  test_key: ${{.secrets.test_key }}
+
+
+
