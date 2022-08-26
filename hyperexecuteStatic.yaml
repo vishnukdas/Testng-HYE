@@ -28,7 +28,7 @@ tunnelOpts:
 #  systemProxy: true
 #  systemProxyBypass: ["hub.lambdatest.com", "hypertestproduction.blob.core.windows.net"]
 autosplit: true
-concurrency: 2
+concurrency: 30
 testDiscovery:
   type: raw
   mode: static
