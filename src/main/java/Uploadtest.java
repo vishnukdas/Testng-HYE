@@ -16,7 +16,7 @@ public class Uploadtest {
     String username = System.getenv("LT_USERNAME");
     String accesskey = System.getenv("LT_ACCESS_KEY");
     RemoteWebDriver driver;
-    String gridURL = "@hub.lambdatest.com/wd/hub";
+    String gridURL = "@stage-hub.lambdatest.com/wd/hub";
     String status = "";
 
     float ClickCommandTime;
