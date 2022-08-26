@@ -11,7 +11,7 @@ pool:
 
 steps:
 
-- script: 
-          wget https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
-          chmod u+x hyperexecute
-          ./hyperexecute -u prateek.delguy -k 9DjIGDAUAnyqaNELLFGeGyLCcdW2W4diRXje0U5yaHr8nAReqE -i hyperexecuteStatic.yaml
+- script: |
+           wget https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
+           chmod u+x hyperexecute
+           ./hyperexecute -u prateek.delguy -k 9DjIGDAUAnyqaNELLFGeGyLCcdW2W4diRXje0U5yaHr8nAReqE -i hyperexecuteStatic.yaml
