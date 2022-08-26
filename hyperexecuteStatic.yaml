@@ -20,9 +20,9 @@ runson: linux
 debug: false
 frameworkStatusOn: true
 
-#tunnel: true
-#tunnelOpts:
-#  preOnly: true
+tunnel: true
+tunnelOpts:
+ preOnly: true
 #  tunnelNames: ["prateeks"]
 #  args: ["--mitm","--verbose"]
 #  systemProxy: true
