@@ -13,5 +13,5 @@ steps:
 
 - script: |
            wget https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe
-           chmod u+x hyperexecute
-           ./hyperexecute -u prateek.delguy -k 9DjIGDAUAnyqaNELLFGeGyLCcdW2W4diRXje0U5yaHr8nAReqE -i hyperexecuteStatic.yaml --verbose
+           
+           ./hyperexecute.exe -u prateek.delguy -k 9DjIGDAUAnyqaNELLFGeGyLCcdW2W4diRXje0U5yaHr8nAReqE -i hyperexecuteStatic.yaml --verbose
