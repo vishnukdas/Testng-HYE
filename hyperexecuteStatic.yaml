@@ -16,7 +16,7 @@ vars:
   path: src/test/java/testng.xml
 
 jobLabel: ['Stage','Job_label','postOnly']
-runson: linux
+runson: win
 debug: false
 frameworkStatusOn: true
 
