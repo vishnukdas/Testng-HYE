@@ -12,6 +12,6 @@ pool:
 steps:
 
 - script: |
-           curl -O https://stage-downloads.lambdatestinternal.com/hyperexecute/windows/hyperexecute.exe
+           curl -O https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe
            
-           hyperexecute.exe -u prateeks -k lOiW0XI8oQxV1qas94ZjNnDZTvRYJnkykgteocvs7p7U9I8cqE -i hyperexecuteStatic.yaml --env stage --verbose
+           hyperexecute.exe -u prateek.delguy -k 9DjIGDAUAnyqaNELLFGeGyLCcdW2W4diRXje0U5yaHr8nAReqE -i hyperexecuteStatic.yaml --verbose
