@@ -28,10 +28,10 @@ tunnelOpts:
 #  systemProxy: true
 #  systemProxyBypass: ["hub.lambdatest.com", "hypertestproduction.blob.core.windows.net"]
 autosplit: true
-concurrency: 30
+concurrency: 50
 testDiscovery:
   type: raw
-  mode: static
+  mode: dynamic
   command: grep 'test name' ${path} | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
 
 testRunnerCommand: mvn test -DselectedTests="$test" -Dmaven.repo.local=./.m2 dependency:resolve #-nsu #`-DproxyHost=%LT_PROXY_HOST%  `-DproxyPort=%LT_PROXY_PORT% `-Dhttp.nonProxyHosts=stage-hub.lambdatest.com
