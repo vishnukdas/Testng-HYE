@@ -20,7 +20,7 @@ runson: win
 debug: false
 frameworkStatusOn: true
 
-tunnel: true
+tunnel: false
 tunnelOpts:
  global: true
 #  tunnelNames: ["prateeks"]
