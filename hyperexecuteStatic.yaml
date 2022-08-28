@@ -22,13 +22,13 @@ frameworkStatusOn: true
 
 tunnel: true
 tunnelOpts:
- preOnly: true
+ global: true
 #  tunnelNames: ["prateeks"]
 #  args: ["--mitm","--verbose"]
 #  systemProxy: true
 #  systemProxyBypass: ["hub.lambdatest.com", "hypertestproduction.blob.core.windows.net"]
 autosplit: true
-concurrency: 50
+concurrency: 5
 testDiscovery:
   type: raw
   mode: dynamic
