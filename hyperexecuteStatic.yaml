@@ -76,11 +76,11 @@ cacheKey: '{{ checksum "pom.xml" }}'
 cacheDirectories:
   - .m2
 #
-#uploadArtefacts:
-#    - name: Files
-#      path:
-#         - Files\
-#
+uploadArtefacts:
+   - name: Files
+     path:
+        - /**
+
 #    - name: DOWNLOADS
 #      path:
 #          - src/test/
