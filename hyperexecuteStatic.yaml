@@ -12,8 +12,8 @@ maxRetries: 1
 #      version: "1.4.0"
 #    - name: "gradle"
 #      version : "7.0"
-vars:
-  path: src/test/java/testng.xml
+#vars:
+#  path: src/test/java/testng.xml
 
 jobLabel: ['Stage','Job_label','postOnly']
 runson: win
@@ -32,7 +32,7 @@ concurrency: 5
 testDiscovery:
   type: raw
   mode: static
-  command: grep 'test name' ${path} | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
+  command: grep 'test name' src/test/java/${xml} | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
 
 testRunnerCommand: mvn test `-DselectedTests="$test" `-Dmaven.repo.local=./.m2 dependency:resolve #-nsu #`-DproxyHost=%LT_PROXY_HOST%  `-DproxyPort=%LT_PROXY_PORT% `-Dhttp.nonProxyHosts=stage-hub.lambdatest.com
 #testRunnerCommand: mvn clean test -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests="$test"
