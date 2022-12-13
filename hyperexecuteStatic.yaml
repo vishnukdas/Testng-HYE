@@ -31,10 +31,11 @@ autosplit: true
 concurrency: 5
 testDiscovery:
   type: raw
-  mode: static
+  mode: dynamic
   command: grep 'test name' src/test/java/${xml} | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
 
-testRunnerCommand: mvn test `-DselectedTests="$test" `-Dmaven.repo.local=./.m2 dependency:resolve #-nsu #`-DproxyHost=%LT_PROXY_HOST%  `-DproxyPort=%LT_PROXY_PORT% `-Dhttp.nonProxyHosts=stage-hub.lambdatest.com
+testRunnerCommand: mvn test `-DselectedTests="$test" `-Dmaven.repo.local=./.m2 dependency:resolve `-Dbrowser=${browser} `-Dversion=${version}
+#-nsu #`-DproxyHost=%LT_PROXY_HOST%  `-DproxyPort=%LT_PROXY_PORT% `-Dhttp.nonProxyHosts=stage-hub.lambdatest.com
 #testRunnerCommand: mvn clean test -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests="$test"
 
 report: true
