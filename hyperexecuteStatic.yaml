@@ -31,7 +31,7 @@ autosplit: true
 concurrency: 5
 testDiscovery:
   type: raw
-  mode: dynamic
+  mode: static
   command: grep 'test name' ${path} | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
 
 testRunnerCommand: mvn test `-DselectedTests="$test" `-Dmaven.repo.local=./.m2 dependency:resolve #-nsu #`-DproxyHost=%LT_PROXY_HOST%  `-DproxyPort=%LT_PROXY_PORT% `-Dhttp.nonProxyHosts=stage-hub.lambdatest.com
