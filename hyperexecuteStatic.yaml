@@ -36,7 +36,7 @@ testDiscovery:
   mode: dynamic
   command: grep 'test name' src/test/java/${xml} | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
 
-testRunnerCommand: mvn test `-DselectedTests="$test" `-Dmaven.repo.local=./.m2 dependency:resolve `-Dbrowser=${browser} `-Dversion=${version} '-Dbuild=${LT_BUILD_NAME}
+testRunnerCommand: mvn test `-DselectedTests="$test" `-Dmaven.repo.local=./.m2 dependency:resolve `-Dbrowser=${browser} `-Dversion=${version} `-Dbuild=${LT_BUILD_NAME}
 
 
 
