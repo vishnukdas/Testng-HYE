@@ -47,7 +47,7 @@ public class Uploadtest {
         capabilities.setCapability("browserVersion", version);
         capabilities.setCapability("platformName", System.getenv("HYPEREXECUTE_PLATFORM"));
 //        capabilities.setCapability("build", "TestNG Framework" + jobid);
-        capabilities.setCapability("build",System.getenv("LT_BUILD_NAME"));
+        capabilities.setCapability("build", System.getProperty("build"));
         capabilities.setCapability("name", "testName");
         capabilities.setCapability("network", false);
         capabilities.setCapability("visual", true);
