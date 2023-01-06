@@ -47,6 +47,7 @@ public class Uploadtest {
         capabilities.setCapability("browserVersion", version);
         capabilities.setCapability("platformName", System.getenv("HYPEREXECUTE_PLATFORM"));
 //        capabilities.setCapability("build", "TestNG Framework" + jobid);
+        System.out.println(System.getProperty("build")+"-----------------jenkins build name");
         capabilities.setCapability("build", System.getProperty("build"));
         capabilities.setCapability("name", "testName");
         capabilities.setCapability("network", false);
