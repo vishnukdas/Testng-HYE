@@ -96,6 +96,7 @@ mergeArtifacts: true
 stripParentDirectory: true
 env:
   VERSION: 3.141.59
+  BUILD: ${LT_BUILD_NAME}
 #   aws_access_key_id: ${{ .secrets.aws_access_key_id }}
 #   aws_secret_access_key: ${{ .secrets.aws_secret_access_key }}
 
